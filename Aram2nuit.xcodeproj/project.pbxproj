@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64AED0FB0FC44A641662B58D /* Pods_Aram2nuit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B93C940B51B19C17CCBF5135 /* Pods_Aram2nuit.framework */; };
 		C207FC961EF9AD7500342852 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207FC951EF9AD7500342852 /* AppDelegate.swift */; };
 		C207FC981EF9AD7500342852 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207FC971EF9AD7500342852 /* ViewController.swift */; };
 		C207FC9B1EF9AD7500342852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C207FC991EF9AD7500342852 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77000EA8B73BF48604664F2E /* Pods-Aram2nuit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aram2nuit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aram2nuit/Pods-Aram2nuit.debug.xcconfig"; sourceTree = "<group>"; };
+		9B04F3783617B80F3F1ACCC7 /* Pods-Aram2nuit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aram2nuit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aram2nuit/Pods-Aram2nuit.release.xcconfig"; sourceTree = "<group>"; };
+		B93C940B51B19C17CCBF5135 /* Pods_Aram2nuit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aram2nuit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C207FC921EF9AD7500342852 /* Aram2nuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aram2nuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C207FC951EF9AD7500342852 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C207FC971EF9AD7500342852 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64AED0FB0FC44A641662B58D /* Pods_Aram2nuit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89328BF5E2F5D692A8089A1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B93C940B51B19C17CCBF5135 /* Pods_Aram2nuit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A4B088116C2B9C5AA33FB10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77000EA8B73BF48604664F2E /* Pods-Aram2nuit.debug.xcconfig */,
+				9B04F3783617B80F3F1ACCC7 /* Pods-Aram2nuit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C207FC891EF9AD7400342852 = {
 			isa = PBXGroup;
 			children = (
 				C207FC941EF9AD7500342852 /* Aram2nuit */,
 				C207FC931EF9AD7500342852 /* Products */,
+				8A4B088116C2B9C5AA33FB10 /* Pods */,
+				89328BF5E2F5D692A8089A1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C207FCA41EF9AD7500342852 /* Build configuration list for PBXNativeTarget "Aram2nuit" */;
 			buildPhases = (
+				8576386905B4A0BF791AFCEC /* [CP] Check Pods Manifest.lock */,
 				C207FC8E1EF9AD7500342852 /* Sources */,
 				C207FC8F1EF9AD7500342852 /* Frameworks */,
 				C207FC901EF9AD7500342852 /* Resources */,
+				0811DF53BD536528004C6B1F /* [CP] Embed Pods Frameworks */,
+				1866CD773FF1EBC23D062202 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0811DF53BD536528004C6B1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aram2nuit/Pods-Aram2nuit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1866CD773FF1EBC23D062202 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aram2nuit/Pods-Aram2nuit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8576386905B4A0BF791AFCEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C207FC8E1EF9AD7500342852 /* Sources */ = {
@@ -260,6 +335,7 @@
 		};
 		C207FCA51EF9AD7500342852 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77000EA8B73BF48604664F2E /* Pods-Aram2nuit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aram2nuit/Info.plist;
@@ -272,6 +348,7 @@
 		};
 		C207FCA61EF9AD7500342852 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B04F3783617B80F3F1ACCC7 /* Pods-Aram2nuit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Aram2nuit/Info.plist;

@@ -18,6 +18,8 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var summoner:User = User()
     var servers = ["EUW", "RU", "KR", "BR", "OC", "JP", "NA", "EUN", "TR", "LA1", "LA2"]
     
+    
+    // PICKER MANAGEMENT
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -30,6 +32,8 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return servers[row]
     }
     
+    
+    // API CALLS
     func getUser(summonerName: String, completion : @escaping (_ name: String, _ id : Int, _ accountId: Int,
         _ profileIconId : Int, _ summonerLevel : Int) -> Void) {
         
@@ -38,7 +42,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         Alamofire.request(LolAPIRouter.getSummoner(summonerName))
             .responseJSON{
                 response in guard response.result.isSuccess else {
-                    print("Error while guetting summoner : \(response.result.error)")
+                    print("Error while getting summoner : \(response.result.error)")
                     completion("", 0, 0, 0, 0)
                     return
                 }
@@ -50,9 +54,34 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 }
                 
                 print(responseJSON)
-                completion("", 0, 0, 0, 0)
+                completion(responseJSON["name"] as! String,
+                           responseJSON["id"] as! Int,
+                           responseJSON["accountId"] as! Int,
+                           responseJSON["profileIconId"] as! Int,
+                           responseJSON["summonerLevel"] as! Int)
         }
         return
+    }
+    
+    func getMatchs(summonerId: Int, completion : @escaping (_ matches:[Match]) -> Void)
+    {
+        Alamofire.request(LolAPIRouter.getHistory(summonerId))
+            .responseJSON(){
+                response in guard response.result.isSuccess else {
+                    print("Error while getting summoner : \(response.result.error)")
+                    completion([Match]())
+                    return
+                }
+                
+                guard let responseJSON = response.result.value as? [String : Any] else {
+                    print("Invalid JSON from API")
+                    completion([Match]())
+                    return
+                }
+                
+                print(responseJSON)
+                completion([Match]())
+        }
     }
     
     @IBAction func searchSummoner()
@@ -60,6 +89,10 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         getUser(summonerName: searchBar.text!,
                 completion: { [unowned self] name, id, accountId, profileIconId, summonerLevel in
                     self.summoner = User(name : name, id : id, profileIconId: profileIconId, summonerLevel : summonerLevel, accountId : accountId)
+                    //CHANGE THE VIEW
+                    self.getMatchs(summonerId: self.summoner.accountId, completion: {_ in
+                        return
+                    })
                     
         })
     }

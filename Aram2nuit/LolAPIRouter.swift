@@ -76,6 +76,8 @@ public enum LolAPIRouter : URLRequestConvertible
         switch self {
         case .getSummoner(let summonerName):
             return "/summoner/v3/summoners/by-name/" + summonerName
+        case .getHistory(let summonerId) :
+            return "/match/v3/matchlists/by-account/" + String(summonerId) + "/recent"
         default:
             return ""
         }
@@ -92,11 +94,11 @@ public enum LolAPIRouter : URLRequestConvertible
         }()
         
         let url = try LolAPIRouter.baseURLPath.asURL()
-        
         var request = URLRequest(url: url.appendingPathComponent(path))
         request.httpMethod = method.rawValue
         request.setValue(LolAPIRouter.XRiotToken, forHTTPHeaderField: "X-Riot-Token")
         request.timeoutInterval = TimeInterval(10 * 1000)
+        print(request.url?.absoluteString)
         
         return try URLEncoding.default.encode(request, with: parameters)
     }

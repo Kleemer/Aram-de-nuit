@@ -1,6 +1,0 @@
-framework module Pods_Aram2nuit {
-  umbrella header "Pods-Aram2nuit-umbrella.h"
-
-  export *
-  module * { export * }
-}

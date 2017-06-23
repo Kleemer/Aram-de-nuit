@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aram2nuit/UserPageViewController.swift"
+            timestampString = "519849578.777162"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "UserPageViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aram2nuit.UserPageViewController.__deallocating_deinit"
+                  moduleName = "Aram2nuit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thibs/Desktop/AramDeNuit/Aram2nuit/UserPageViewController.swift"
+                  timestampString = "519919493.192284"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aram2nuit.UserPageViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Aram2nuit.UserPageViewController"
+                  moduleName = "Aram2nuit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thibs/Desktop/AramDeNuit/Aram2nuit/UserPageViewController.swift"
+                  timestampString = "519919493.195252"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "118">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aram2nuit.UserPageViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Aram2nuit.UserPageViewController"
+                  moduleName = "Aram2nuit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thibs/Desktop/AramDeNuit/Aram2nuit/UserPageViewController.swift"
+                  timestampString = "519919493.200081"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aram2nuit.UserPageViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Aram2nuit.UserPageViewController&gt;"
+                  moduleName = "Aram2nuit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thibs/Desktop/AramDeNuit/Aram2nuit/UserPageViewController.swift"
+                  timestampString = "519919493.204707"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aram2nuit.UserPageViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Aram2nuit.UserPageViewController&gt;"
+                  moduleName = "Aram2nuit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thibs/Desktop/AramDeNuit/Aram2nuit/UserPageViewController.swift"
+                  timestampString = "519919493.206869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "105">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aram2nuit/FindUserViewController.swift"
+            timestampString = "519918956.203797"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "searchSummoner()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aram2nuit/LolAPIRouter.swift"
+            timestampString = "519919293.937517"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "path"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

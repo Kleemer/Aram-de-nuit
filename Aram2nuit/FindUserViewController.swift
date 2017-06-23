@@ -90,9 +90,13 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 completion: { [unowned self] name, id, accountId, profileIconId, summonerLevel in
                     self.summoner = User(name : name, id : id, profileIconId: profileIconId, summonerLevel : summonerLevel, accountId : accountId)
                     //CHANGE THE VIEW
+                    if (accountId > 0) {
+                        self.performSegue(withIdentifier: "UserDetails", sender: self)
+                    }
+                    /*
                     self.getMatchs(summonerId: self.summoner.accountId, completion: {_ in
                         return
-                    })
+                    })*/
                     
         })
     }
@@ -110,14 +114,20 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "UserDetails" {
+            if let userViewController = segue.destination as? UserDetailsViewController {
+                userViewController.user = self.summoner as? User
+                userViewController.server = "EUW"
+            }
+        }
     }
-    */
+    
 
 }

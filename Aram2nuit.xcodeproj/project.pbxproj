@@ -14,6 +14,7 @@
 		725135B21EFD4D4D00667B56 /* FindUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135B11EFD4D4D00667B56 /* FindUserViewController.swift */; };
 		725135B41EFD4D8A00667B56 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135B31EFD4D8A00667B56 /* User.swift */; };
 		725135BB1EFDBF7700667B56 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135BA1EFDBF7700667B56 /* Match.swift */; };
+		725135BD1EFDC88000667B56 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135BC1EFDC88000667B56 /* UserDetailsViewController.swift */; };
 		C207FC961EF9AD7500342852 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207FC951EF9AD7500342852 /* AppDelegate.swift */; };
 		C207FC981EF9AD7500342852 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207FC971EF9AD7500342852 /* ViewController.swift */; };
 		C207FC9B1EF9AD7500342852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C207FC991EF9AD7500342852 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		725135B11EFD4D4D00667B56 /* FindUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindUserViewController.swift; sourceTree = "<group>"; };
 		725135B31EFD4D8A00667B56 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Aram2nuit/User.swift; sourceTree = "<group>"; };
 		725135BA1EFDBF7700667B56 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		725135BC1EFDC88000667B56 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		C207FC921EF9AD7500342852 /* Aram2nuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aram2nuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C207FC951EF9AD7500342852 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C207FC971EF9AD7500342852 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				7251355F1EFC465D00667B56 /* UserPageViewController.swift */,
 				725135B11EFD4D4D00667B56 /* FindUserViewController.swift */,
+				725135BC1EFDC88000667B56 /* UserDetailsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				C207FC981EF9AD7500342852 /* ViewController.swift in Sources */,
 				C207FC961EF9AD7500342852 /* AppDelegate.swift in Sources */,
 				725135661EFD3F5700667B56 /* LolAPIRouter.swift in Sources */,
+				725135BD1EFDC88000667B56 /* UserDetailsViewController.swift in Sources */,
 				725135BB1EFDBF7700667B56 /* Match.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

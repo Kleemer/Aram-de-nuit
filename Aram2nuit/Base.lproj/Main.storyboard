@@ -46,11 +46,48 @@
                         <outlet property="pickerView" destination="JdZ-VE-swg" id="Q4r-q7-vPY"/>
                         <outlet property="searchBar" destination="WAY-5j-SM0" id="H4o-e1-PIj"/>
                         <outlet property="searchButton" destination="5wk-71-XAV" id="oK7-MH-pEI"/>
+                        <segue destination="wkW-Ll-f2r" kind="show" identifier="UserDetails" id="a2o-ap-MBh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863.20000000000005" y="10.344827586206897"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="4T2-vp-vQS">
+            <objects>
+                <viewController id="wkW-Ll-f2r" customClass="UserDetailsViewController" customModule="Aram2nuit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nyl-6C-MFc"/>
+                        <viewControllerLayoutGuide type="bottom" id="ftG-Or-Sxj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vof-UH-jmr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wY1-DK-B2d">
+                                <rect key="frame" x="16" y="72" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYV-HB-2Z6">
+                                <rect key="frame" x="166" y="112" width="193" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="d9H-Dy-Poc"/>
+                    <connections>
+                        <outlet property="iconImage" destination="wY1-DK-B2d" id="U70-BJ-1OI"/>
+                        <outlet property="nameLabel" destination="DYV-HB-2Z6" id="sT8-Tx-H88"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="97H-4S-aFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1888.8" y="9.4452773613193415"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HH6-ZE-8Ed">

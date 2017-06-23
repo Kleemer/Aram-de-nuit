@@ -9,17 +9,32 @@
 import UIKit
 import Alamofire
 
-class FindUserViewController: UIViewController {
+class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
 
+    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIButton!
     
     var summoner:User = User()
+    var servers = ["EUW", "RU", "KR", "BR", "OC", "JP", "NA", "EUN", "TR", "LA1", "LA2"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return servers.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return servers[row]
+    }
     
     func getUser(summonerName: String, completion : @escaping (_ name: String, _ id : Int, _ accountId: Int,
         _ profileIconId : Int, _ summonerLevel : Int) -> Void) {
         
-
+        LolAPIRouter.setServer(serverPick: servers[pickerView.selectedRow(inComponent: 0)])
+        
         Alamofire.request(LolAPIRouter.getSummoner(summonerName))
             .responseJSON{
                 response in guard response.result.isSuccess else {
@@ -51,7 +66,8 @@ class FindUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        pickerView.dataSource = self
+        pickerView.delegate = self
         // Do any additional setup after loading the view.
     }
 

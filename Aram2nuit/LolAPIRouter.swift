@@ -11,11 +11,57 @@ import Alamofire
 
 public enum LolAPIRouter : URLRequestConvertible
 {
-    static let baseURLPath = "https://euw1.api.riotgames.com/lol"
+
+    static var server = "euw1"
+    static var baseURLPath = "https://"+server+".api.riotgames.com/lol"
     static let XRiotToken = "RGAPI-a0cecf77-fe35-4846-8339-6c0faa535701"
     
     case getSummoner(String)
     case getHistory(Int)
+    
+    
+    public static func setServer(serverPick:String)
+    {
+        switch serverPick {
+        case "EUW":
+            server = "euw1"
+            break
+        case "RU" :
+            server = "ru"
+            break
+        case "KR" :
+            server = "kr"
+            break
+        case "BR" :
+            server = "br1"
+            break
+        case "OC" :
+            server = "oc1"
+            break
+        case "JP" :
+            server = "jp"
+            break
+        case "NA" :
+            server = "na1"
+            break
+        case "EUN" :
+            server = "eun1"
+            break
+        case "TR" :
+            server = "tr1"
+            break
+        case "LA1" :
+            server = "la1"
+            break
+        case "LA2" :
+            server = "la2"
+            break
+        default :
+            server = "euw1"
+            break
+        }
+        baseURLPath = "https://"+server+".api.riotgames.com/lol"
+    }
     
     var method: HTTPMethod {
         switch self {

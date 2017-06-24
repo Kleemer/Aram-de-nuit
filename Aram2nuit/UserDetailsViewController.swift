@@ -19,14 +19,35 @@ extension UIImageView {
                 else { return }
             DispatchQueue.main.async() { () -> Void in
                 self.image = image
-                print(data)
             }
             }.resume()
     }
+    func downloadedFromInCell(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit, tableView:UITableView, item: Search) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { () -> Void in
+                self.image = image
+                item.image?.image = image
+                tableView.reloadData()
+            }
+            }.resume()
+    }
+
     func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
+        let linkURL = link.replacingOccurrences(of: " ", with: "+")
+        guard let url = URL(string: linkURL) else { return }
         downloadedFrom(url: url, contentMode: mode)
     }
+    func downloadedFromInCell(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit, tableView: UITableView, item: Search) {
+        let linkURL = link.replacingOccurrences(of: " ", with: "+")
+        guard let url = URL(string: linkURL) else { return }
+        downloadedFromInCell(url: url, contentMode: mode, tableView: tableView, item: item)
+    }
+
 }
 
 class UserDetailsViewController: UIViewController {

@@ -39,8 +39,14 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = recentSearchTable.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
-        
-        cell.imageView?.downloadedFrom(link: (oldSearchData[indexPath.row].urlPic))
+        if (oldSearchData[indexPath.row].image?.image != nil)
+        {
+            cell.imageView?.image = oldSearchData[indexPath.row].image?.image
+        }
+        else
+        {
+            cell.imageView?.downloadedFromInCell(link: oldSearchData[indexPath.row].urlPic, tableView: recentSearchTable, item: oldSearchData[indexPath.row])
+        }
         cell.textLabel?.text = oldSearchData[indexPath.row].name
         
         return cell
@@ -70,7 +76,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     completion("", 0, 0, 0, 0)
                     return
                 }
-                
+
                 print(responseJSON)
                 completion(responseJSON["name"] as! String,
                            responseJSON["id"] as! Int,
@@ -119,17 +125,21 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     })*/
                     
         })
-        oldSearchData.append(Search(name:searchBar.text!, urlPic: ""))
-        recentSearchTable.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //UserDefaults.standard.setValue(nil, forKey: "recentSearch")
         pickerView.dataSource = self
         pickerView.delegate = self
         
         recentSearchTable.dataSource = self
         recentSearchTable.delegate = self
+        
+        if let data = UserDefaults.standard.data(forKey: "recentSearch") {
+            oldSearchData = (NSKeyedUnarchiver.unarchiveObject(with: data) as? [Search])!
+            //oldSearchData[0].image?.downloadedFromInCell(link: oldSearchData[0].urlPic, tableView: recentSearchTable, item: oldSearchData[0])
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -149,7 +159,16 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         if segue.identifier == "UserDetails" {
             if let userViewController = segue.destination as? UserDetailsViewController {
                 userViewController.user = self.summoner as? User
-                userViewController.server = "EUW"
+                userViewController.server = servers[pickerView.selectedRow(inComponent: 0)]
+                let imageView=UIImageView()
+
+                let search:Search = Search(name:summoner.name, urlPic: "https://avatar.leagueoflegends.com/" + userViewController.server! + "/" + summoner.name + ".png", image: imageView)
+                imageView.downloadedFromInCell(link: "https://avatar.leagueoflegends.com/" + userViewController.server! + "/" + summoner.name + ".png", tableView: recentSearchTable, item: search)
+                
+                oldSearchData.insert(search, at: 0)
+                recentSearchTable.reloadData()
+                let encodedData = NSKeyedArchiver.archivedData(withRootObject: oldSearchData)
+                UserDefaults.standard.setValue(encodedData, forKey: "recentSearch")
             }
         }
     }

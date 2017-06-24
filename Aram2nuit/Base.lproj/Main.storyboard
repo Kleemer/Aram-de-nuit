@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,18 +22,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="Type summoner name" translatesAutoresizingMaskIntoConstraints="NO" id="WAY-5j-SM0">
+                            <searchBar contentMode="redraw" text="" placeholder="Type summoner name" translatesAutoresizingMaskIntoConstraints="NO" id="WAY-5j-SM0">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdZ-VE-swg">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JdZ-VE-swg">
                                 <rect key="frame" x="0.0" y="108" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wk-71-XAV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fva-2j-oaw">
+                                <rect key="frame" x="16" y="398" width="343" height="232"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" id="X0f-eX-nkd">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X0f-eX-nkd" id="HmM-Al-BgD">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-HH-rEi">
+                                <rect key="frame" x="16" y="369" width="101" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="KRg-EG-vxW"/>
+                                    <constraint firstAttribute="width" constant="101" id="fdH-NX-hkd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wk-71-XAV">
                                 <rect key="frame" x="163" y="340" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
                                     <action selector="searchSummoner" destination="BYZ-38-t0r" eventType="touchUpInside" id="IPL-nT-Fbp"/>
@@ -40,10 +62,27 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JdZ-VE-swg" firstAttribute="centerX" secondItem="5wk-71-XAV" secondAttribute="centerX" id="21r-gD-SMQ"/>
+                            <constraint firstItem="WAY-5j-SM0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5XN-eX-dSR"/>
+                            <constraint firstItem="5wk-71-XAV" firstAttribute="top" secondItem="JdZ-VE-swg" secondAttribute="bottom" constant="16" id="FBG-cN-AGF"/>
+                            <constraint firstItem="Fva-2j-oaw" firstAttribute="top" secondItem="5wk-71-XAV" secondAttribute="bottom" constant="28" id="FUY-Ge-EWk"/>
+                            <constraint firstItem="rSI-HH-rEi" firstAttribute="leading" secondItem="Fva-2j-oaw" secondAttribute="leading" id="FYG-GW-FnO"/>
+                            <constraint firstItem="WAY-5j-SM0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="KzO-DM-xfi"/>
+                            <constraint firstItem="5wk-71-XAV" firstAttribute="centerX" secondItem="Fva-2j-oaw" secondAttribute="centerX" id="YNz-8c-HLw"/>
+                            <constraint firstItem="Fva-2j-oaw" firstAttribute="top" secondItem="rSI-HH-rEi" secondAttribute="bottom" constant="8" symbolic="YES" id="aly-7P-czh"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rSI-HH-rEi" secondAttribute="leading" id="bYz-8t-M3L"/>
+                            <constraint firstItem="JdZ-VE-swg" firstAttribute="top" secondItem="WAY-5j-SM0" secondAttribute="bottom" id="cud-6q-bcq"/>
+                            <constraint firstItem="WAY-5j-SM0" firstAttribute="trailing" secondItem="JdZ-VE-swg" secondAttribute="trailing" id="ejI-No-hyA"/>
+                            <constraint firstItem="WAY-5j-SM0" firstAttribute="leading" secondItem="JdZ-VE-swg" secondAttribute="leading" id="fWN-Vt-h4w"/>
+                            <constraint firstItem="5wk-71-XAV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gAJ-tL-3Ui"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Fva-2j-oaw" secondAttribute="bottom" constant="37" id="jX3-t1-V7A"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Aram2Nuit" id="vPG-pz-zvW"/>
                     <connections>
                         <outlet property="pickerView" destination="JdZ-VE-swg" id="Q4r-q7-vPY"/>
+                        <outlet property="recentSearchTable" destination="Fva-2j-oaw" id="Pec-tv-j5u"/>
                         <outlet property="searchBar" destination="WAY-5j-SM0" id="H4o-e1-PIj"/>
                         <outlet property="searchButton" destination="5wk-71-XAV" id="oK7-MH-pEI"/>
                         <segue destination="wkW-Ll-f2r" kind="show" identifier="UserDetails" id="a2o-ap-MBh"/>
@@ -69,6 +108,18 @@
                                 <rect key="frame" x="16" y="72" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x5e-P5-fmZ">
+                                <rect key="frame" x="16" y="220" width="343" height="417"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recent ARAM Matchs :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3x-vV-yEl">
+                                <rect key="frame" x="16" y="191" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYV-HB-2Z6">
                                 <rect key="frame" x="166" y="112" width="193" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

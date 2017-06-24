@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 extension UIImageView {
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
@@ -34,12 +35,34 @@ class UserDetailsViewController: UIViewController {
     @IBOutlet weak var iconImage: UIImageView!
     public var user:User?
     public var server:String?
+    var matches:[Match] = [Match]()
+    
+    func getMatchs(summonerId: Int, completion : @escaping (_ matches:[Match]) -> Void)
+    {
+        Alamofire.request(LolAPIRouter.getHistory(summonerId))
+            .responseJSON(){
+                response in guard response.result.isSuccess else {
+                    print("Error while getting summoner : \(response.result.error)")
+                    completion([Match]())
+                    return
+                }
+                
+                guard let responseJSON = response.result.value as? [String : Any] else {
+                    print("Invalid JSON from API")
+                    completion([Match]())
+                    return
+                }
+                
+                print(responseJSON)
+                print(responseJSON.index(forKey: "match"))
+                completion([Match]())
+        }
+    }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel.text = user?.name
-        print("http://avatar.leagueoflegends.com/" + server! + "/" + (user?.name)!)
         iconImage.downloadedFrom(link: "https://avatar.leagueoflegends.com/" + server! + "/" + (user?.name)! + ".png")
         
         

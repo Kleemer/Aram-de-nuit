@@ -4,11 +4,13 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E4F12EA63965D3EC6B850DBDA9658281AA56F56C" : 9223372036854775807,
     "99DE2C0B046210084536DA6F25E2C7128B282E66" : 9223372036854775807,
     "67620B5EFA902936DF04070AF595B76AB0333747" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "58629592-0E16-4E65-9569-B3ED443FD707",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E4F12EA63965D3EC6B850DBDA9658281AA56F56C" : "AramDeNuit\/JLToast\/",
     "99DE2C0B046210084536DA6F25E2C7128B282E66" : "AramDeNuit\/",
     "67620B5EFA902936DF04070AF595B76AB0333747" : "AramDeNuit\/Alamofire\/"
   },
@@ -25,6 +27,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Kleemer\/Aram-de-nuit.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "99DE2C0B046210084536DA6F25E2C7128B282E66"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ldiqual\/JLToast.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E4F12EA63965D3EC6B850DBDA9658281AA56F56C"
     }
   ]
 }

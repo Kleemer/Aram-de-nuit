@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Toaster
 
 class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate{
 
@@ -56,7 +57,6 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return (oldSearchData.count)
     }
     
-    
     // API CALLS
     func getUser(summonerName: String, completion : @escaping (_ name: String, _ id : Int, _ accountId: Int,
         _ profileIconId : Int, _ summonerLevel : Int) -> Void) {
@@ -65,8 +65,12 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         Alamofire.request(LolAPIRouter.getSummoner(summonerName))
             .responseJSON{
-                response in guard response.result.isSuccess else {
-                    print("Error while getting summoner : \(response.result.error)")
+                response in
+                self.searchButton.isEnabled = true
+                guard response.result.isSuccess else {
+                    print("Error while getting summoner : \(String(describing: response.result.error))")
+                    ToastView.appearance().backgroundColor = #colorLiteral(red: 1, green: 0.3005838394, blue: 0.2565174997, alpha: 1)
+                    Toast(text:"No internet connection !").show()
                     completion("", 0, 0, 0, 0)
                     return
                 }
@@ -77,36 +81,23 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     return
                 }
 
-                print(responseJSON)
+                if (responseJSON["status"] != nil)
+                {
+                    ToastView.appearance().backgroundColor = #colorLiteral(red: 1, green: 0.3005838394, blue: 0.2565174997, alpha: 1)
+                    Toast(text:"User not found !").show()
+                    completion("", 0, 0, 0, 0)
+                    return
+                }
                 completion(responseJSON["name"] as! String,
                            responseJSON["id"] as! Int,
                            responseJSON["accountId"] as! Int,
                            responseJSON["profileIconId"] as! Int,
                            responseJSON["summonerLevel"] as! Int)
+
         }
         return
     }
     
-    func getMatchs(summonerId: Int, completion : @escaping (_ matches:[Match]) -> Void)
-    {
-        Alamofire.request(LolAPIRouter.getHistory(summonerId))
-            .responseJSON(){
-                response in guard response.result.isSuccess else {
-                    print("Error while getting summoner : \(response.result.error)")
-                    completion([Match]())
-                    return
-                }
-                
-                guard let responseJSON = response.result.value as? [String : Any] else {
-                    print("Invalid JSON from API")
-                    completion([Match]())
-                    return
-                }
-                
-                print(responseJSON)
-                completion([Match]())
-        }
-    }
     
     
     //SEARCH BUTTON ACTION
@@ -125,11 +116,13 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     })*/
                     
         })
+        searchButton.isEnabled = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //UserDefaults.standard.setValue(nil, forKey: "recentSearch")
+        searchButton.isEnabled = true
         pickerView.dataSource = self
         pickerView.delegate = self
         

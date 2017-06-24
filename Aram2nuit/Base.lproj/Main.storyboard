@@ -112,6 +112,16 @@
                                 <rect key="frame" x="16" y="220" width="343" height="417"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchCell" id="JIw-yI-8nF">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JIw-yI-8nF" id="BIX-nb-qwY">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recent ARAM Matchs :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3x-vV-yEl">
                                 <rect key="frame" x="16" y="191" width="176" height="21"/>
@@ -133,6 +143,7 @@
                     <navigationItem key="navigationItem" title="Details" id="d9H-Dy-Poc"/>
                     <connections>
                         <outlet property="iconImage" destination="wY1-DK-B2d" id="U70-BJ-1OI"/>
+                        <outlet property="matchTable" destination="x5e-P5-fmZ" id="tqp-tx-Pgu"/>
                         <outlet property="nameLabel" destination="DYV-HB-2Z6" id="sT8-Tx-H88"/>
                     </connections>
                 </viewController>

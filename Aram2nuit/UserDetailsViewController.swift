@@ -50,8 +50,9 @@ extension UIImageView {
 
 }
 
-class UserDetailsViewController: UIViewController {
+class UserDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var matchTable: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
     public var user:User?
@@ -75,18 +76,28 @@ class UserDetailsViewController: UIViewController {
                 }
                 
                 print(responseJSON)
-                print(responseJSON.index(forKey: "match"))
+                print(responseJSON.index(forKey: "matches"))
                 completion([Match]())
         }
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return matches.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                let cell = matchTable.dequeueReusableCell(withIdentifier: "matchCell", for: indexPath)
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel.text = user?.name
         iconImage.downloadedFrom(link: "https://avatar.leagueoflegends.com/" + server! + "/" + (user?.name)! + ".png")
         
-        
+        getMatchs(summonerId: (user?.accountId)!, completion: {
+            matchlist in
+            return
+        })
         // Do any additional setup after loading the view.
     }
 

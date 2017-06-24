@@ -103,11 +103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aram2nuit/FindUserViewController.swift"
-            timestampString = "520017422.237156"
+            timestampString = "520020287.564798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "searchSummoner()"
             landmarkType = "7">
          </BreakpointContent>
@@ -167,11 +167,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aram2nuit/FindUserViewController.swift"
-            timestampString = "520017422.237156"
+            timestampString = "520020287.564798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aram2nuit/FindUserViewController.swift"
-            timestampString = "520017422.237156"
+            timestampString = "520019212.101449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -205,6 +205,22 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "downloadedFromInCell(link:contentMode:tableView:item:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aram2nuit/FindUserViewController.swift"
+            timestampString = "520020287.564798"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "getUser(summonerName:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

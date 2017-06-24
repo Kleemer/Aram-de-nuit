@@ -97,7 +97,7 @@ public enum LolAPIRouter : URLRequestConvertible
         var request = URLRequest(url: url.appendingPathComponent(path))
         request.httpMethod = method.rawValue
         request.setValue(LolAPIRouter.XRiotToken, forHTTPHeaderField: "X-Riot-Token")
-        request.timeoutInterval = TimeInterval(10 * 1000)
+        request.timeoutInterval = TimeInterval(10 * 500)
         print(request.url?.absoluteString)
         
         return try URLEncoding.default.encode(request, with: parameters)

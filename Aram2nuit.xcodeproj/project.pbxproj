@@ -16,6 +16,8 @@
 		725135BB1EFDBF7700667B56 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135BA1EFDBF7700667B56 /* Match.swift */; };
 		725135BD1EFDC88000667B56 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135BC1EFDC88000667B56 /* UserDetailsViewController.swift */; };
 		725135BF1EFE5ED700667B56 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135BE1EFE5ED700667B56 /* Search.swift */; };
+		72FEAEE11EFEDC6A0078407E /* Toaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FEAEDE1EFEDC610078407E /* Toaster.framework */; };
+		72FEAEE21EFEDC6A0078407E /* Toaster.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72FEAEDE1EFEDC610078407E /* Toaster.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C207FC961EF9AD7500342852 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207FC951EF9AD7500342852 /* AppDelegate.swift */; };
 		C207FC981EF9AD7500342852 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207FC971EF9AD7500342852 /* ViewController.swift */; };
 		C207FC9B1EF9AD7500342852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C207FC991EF9AD7500342852 /* Main.storyboard */; };
@@ -80,6 +82,27 @@
 			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
 			remoteInfo = "Alamofire iOS";
 		};
+		72FEAEDD1EFEDC610078407E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72FEAED81EFEDC610078407E /* Toaster.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A75E2B1BCF2066002E46C4;
+			remoteInfo = Toaster;
+		};
+		72FEAEDF1EFEDC610078407E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72FEAED81EFEDC610078407E /* Toaster.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03A75E4F1BCF20D4002E46C4;
+			remoteInfo = ToasterDemo;
+		};
+		72FEAEE31EFEDC6A0078407E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72FEAED81EFEDC610078407E /* Toaster.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 03A75E2A1BCF2066002E46C4;
+			remoteInfo = Toaster;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +113,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				725135AD1EFD48DD00667B56 /* Alamofire.framework in Embed Frameworks */,
+				72FEAEE21EFEDC6A0078407E /* Toaster.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +129,7 @@
 		725135BA1EFDBF7700667B56 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		725135BC1EFDC88000667B56 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		725135BE1EFE5ED700667B56 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		72FEAED81EFEDC610078407E /* Toaster.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Toaster.xcodeproj; path = Toaster/Toaster.xcodeproj; sourceTree = "<group>"; };
 		C207FC921EF9AD7500342852 /* Aram2nuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aram2nuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C207FC951EF9AD7500342852 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C207FC971EF9AD7500342852 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				725135AC1EFD48DD00667B56 /* Alamofire.framework in Frameworks */,
+				72FEAEE11EFEDC6A0078407E /* Toaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,9 +194,19 @@
 			name = ItemAPI;
 			sourceTree = "<group>";
 		};
+		72FEAED91EFEDC610078407E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72FEAEDE1EFEDC610078407E /* Toaster.framework */,
+				72FEAEE01EFEDC610078407E /* ToasterDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C207FC891EF9AD7400342852 = {
 			isa = PBXGroup;
 			children = (
+				72FEAED81EFEDC610078407E /* Toaster.xcodeproj */,
 				725135B51EFD4DA000667B56 /* ItemAPI */,
 				725135841EFD45E600667B56 /* Alamofire.xcodeproj */,
 				C207FC941EF9AD7500342852 /* Aram2nuit */,
@@ -217,6 +253,7 @@
 			);
 			dependencies = (
 				725135AF1EFD48DD00667B56 /* PBXTargetDependency */,
+				72FEAEE41EFEDC6A0078407E /* PBXTargetDependency */,
 			);
 			name = Aram2nuit;
 			productName = Aram2nuit;
@@ -254,6 +291,10 @@
 				{
 					ProductGroup = 725135851EFD45E600667B56 /* Products */;
 					ProjectRef = 725135841EFD45E600667B56 /* Alamofire.xcodeproj */;
+				},
+				{
+					ProductGroup = 72FEAED91EFEDC610078407E /* Products */;
+					ProjectRef = 72FEAED81EFEDC610078407E /* Toaster.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -313,6 +354,20 @@
 			remoteRef = 7251359B1EFD45E600667B56 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		72FEAEDE1EFEDC610078407E /* Toaster.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Toaster.framework;
+			remoteRef = 72FEAEDD1EFEDC610078407E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		72FEAEE01EFEDC610078407E /* ToasterDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = ToasterDemo.app;
+			remoteRef = 72FEAEDF1EFEDC610078407E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -352,6 +407,11 @@
 			isa = PBXTargetDependency;
 			name = "Alamofire iOS";
 			targetProxy = 725135AE1EFD48DD00667B56 /* PBXContainerItemProxy */;
+		};
+		72FEAEE41EFEDC6A0078407E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toaster;
+			targetProxy = 72FEAEE31EFEDC6A0078407E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

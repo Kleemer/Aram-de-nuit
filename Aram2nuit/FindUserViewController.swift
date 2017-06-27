@@ -83,6 +83,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
                 if (responseJSON["status"] != nil)
                 {
+                    print(responseJSON)
                     ToastView.appearance().backgroundColor = #colorLiteral(red: 1, green: 0.3005838394, blue: 0.2565174997, alpha: 1)
                     Toast(text:"User not found !").show()
                     completion("", 0, 0, 0, 0)

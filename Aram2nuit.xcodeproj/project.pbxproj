@@ -16,8 +16,10 @@
 		725135BB1EFDBF7700667B56 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135BA1EFDBF7700667B56 /* Match.swift */; };
 		725135BD1EFDC88000667B56 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135BC1EFDC88000667B56 /* UserDetailsViewController.swift */; };
 		725135BF1EFE5ED700667B56 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135BE1EFE5ED700667B56 /* Search.swift */; };
+		72D1075B1F018360000FD74F /* ChampionNameByKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D1075A1F018360000FD74F /* ChampionNameByKey.swift */; };
 		72FEAEE11EFEDC6A0078407E /* Toaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FEAEDE1EFEDC610078407E /* Toaster.framework */; };
 		72FEAEE21EFEDC6A0078407E /* Toaster.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72FEAEDE1EFEDC610078407E /* Toaster.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72FEAEE61F017A9B0078407E /* PlayerStatsGlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FEAEE51F017A9B0078407E /* PlayerStatsGlob.swift */; };
 		C207FC961EF9AD7500342852 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207FC951EF9AD7500342852 /* AppDelegate.swift */; };
 		C207FC981EF9AD7500342852 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207FC971EF9AD7500342852 /* ViewController.swift */; };
 		C207FC9B1EF9AD7500342852 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C207FC991EF9AD7500342852 /* Main.storyboard */; };
@@ -129,7 +131,9 @@
 		725135BA1EFDBF7700667B56 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		725135BC1EFDC88000667B56 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		725135BE1EFE5ED700667B56 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		72D1075A1F018360000FD74F /* ChampionNameByKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionNameByKey.swift; sourceTree = "<group>"; };
 		72FEAED81EFEDC610078407E /* Toaster.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Toaster.xcodeproj; path = Toaster/Toaster.xcodeproj; sourceTree = "<group>"; };
+		72FEAEE51F017A9B0078407E /* PlayerStatsGlob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStatsGlob.swift; sourceTree = "<group>"; };
 		C207FC921EF9AD7500342852 /* Aram2nuit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aram2nuit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C207FC951EF9AD7500342852 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C207FC971EF9AD7500342852 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 				725135B31EFD4D8A00667B56 /* User.swift */,
 				725135BA1EFDBF7700667B56 /* Match.swift */,
 				725135BE1EFE5ED700667B56 /* Search.swift */,
+				72FEAEE51F017A9B0078407E /* PlayerStatsGlob.swift */,
+				72D1075A1F018360000FD74F /* ChampionNameByKey.swift */,
 			);
 			name = ItemAPI;
 			sourceTree = "<group>";
@@ -392,6 +398,8 @@
 				725135B21EFD4D4D00667B56 /* FindUserViewController.swift in Sources */,
 				725135B41EFD4D8A00667B56 /* User.swift in Sources */,
 				725135601EFC465D00667B56 /* UserPageViewController.swift in Sources */,
+				72D1075B1F018360000FD74F /* ChampionNameByKey.swift in Sources */,
+				72FEAEE61F017A9B0078407E /* PlayerStatsGlob.swift in Sources */,
 				C207FC981EF9AD7500342852 /* ViewController.swift in Sources */,
 				C207FC961EF9AD7500342852 /* AppDelegate.swift in Sources */,
 				725135661EFD3F5700667B56 /* LolAPIRouter.swift in Sources */,

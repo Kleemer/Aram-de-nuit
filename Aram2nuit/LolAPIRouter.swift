@@ -14,10 +14,11 @@ public enum LolAPIRouter : URLRequestConvertible
 
     static var server = "euw1"
     static var baseURLPath = "https://"+server+".api.riotgames.com/lol"
-    static let XRiotToken = "RGAPI-a0cecf77-fe35-4846-8339-6c0faa535701"
+    static let XRiotToken = "RGAPI-ca216182-43e6-431c-947a-2b640584b824"
     
     case getSummoner(String)
     case getHistory(Int)
+    case getMatchStats(Int)
     
     
     public static func setServer(serverPick:String)
@@ -65,9 +66,7 @@ public enum LolAPIRouter : URLRequestConvertible
     
     var method: HTTPMethod {
         switch self {
-        case .getSummoner :
-            return .get
-        case .getHistory :
+        case .getSummoner, .getMatchStats, .getHistory:
             return .get
         }
     }
@@ -78,6 +77,8 @@ public enum LolAPIRouter : URLRequestConvertible
             return "/summoner/v3/summoners/by-name/" + summonerName
         case .getHistory(let summonerId) :
             return "/match/v3/matchlists/by-account/" + String(summonerId) + "/recent"
+        case .getMatchStats(let matchId) :
+            return "/match/v3/matches/" + String(matchId)
         default:
             return ""
         }

@@ -209,7 +209,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
                         self.matches[curri].statsSummoner = playerStat
                         /*self.matches[curri].champIcon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item6).png", tableView: self.matchTable, match: self.matches[curri])*/
                     }
-                    self.matchTable.reloadRows(at: [IndexPath(item: curri, section: 0)], with: UITableViewRowAnimation.none)
+                    self.matchTable.reloadRows(at: [IndexPath(item: curri, section: 0)], with: UITableViewRowAnimation.automatic)
                     
                 })
                 i += 1

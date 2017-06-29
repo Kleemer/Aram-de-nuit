@@ -19,6 +19,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var summoner:User = User()
     var servers = ["EUW", "RU", "KR", "BR", "OC", "JP", "NA", "EUN", "TR", "LA1", "LA2"]
     var oldSearchData : [Search] = [Search]()
+    var isSearching:Bool = false
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchSummoner()
@@ -64,9 +65,9 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        searchBar.text = oldSearchData[indexPath.row].name
-        pickerView.selectRow(oldSearchData[indexPath.row].serverRow, inComponent: 0, animated: false)
-        searchSummoner()
+            searchBar.text = oldSearchData[indexPath.row].name
+            pickerView.selectRow(oldSearchData[indexPath.row].serverRow, inComponent: 0, animated: false)
+            searchSummoner()
     }
     
     // API CALLS
@@ -115,19 +116,23 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     //SEARCH BUTTON ACTION
     @IBAction func searchSummoner()
     {
-        getUser(summonerName: searchBar.text!,
-                completion: { [unowned self] name, id, accountId, profileIconId, summonerLevel in
-                    self.summoner = User(name : name, id : id, profileIconId: profileIconId, summonerLevel : summonerLevel, accountId : accountId)
-                    //CHANGE THE VIEW
-                    if (accountId > 0) {
-                        self.performSegue(withIdentifier: "UserDetails", sender: self)
-                    }
-                    /*
-                    self.getMatchs(summonerId: self.summoner.accountId, completion: {_ in
-                        return
-                    })*/
+        if (!isSearching) {
+            isSearching = true
+            getUser(summonerName: searchBar.text!,
+                    completion: { [unowned self] name, id, accountId, profileIconId, summonerLevel in
+                        self.summoner = User(name : name, id : id, profileIconId: profileIconId, summonerLevel : summonerLevel, accountId : accountId)
+                        //CHANGE THE VIEW
+                        self.isSearching = false
+                        if (accountId > 0) {
+                            self.performSegue(withIdentifier: "UserDetails", sender: self)
+                        }
+                        /*
+                         self.getMatchs(summonerId: self.summoner.accountId, completion: {_ in
+                         return
+                         })*/
                     
-        })
+            })
+        }
     }
     
     override func viewDidLoad() {

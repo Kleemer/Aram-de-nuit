@@ -191,7 +191,6 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
             cell.characterImage.image = currMatch.champIcon.image
             cell.characterLabel.text = ChampionNameByKey.getNameById(id: currMatch.champion)
         }
-        
         return cell
     }
     
@@ -214,7 +213,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
             self.matches = matchlist
             for match in self.matches
             {
-                var curri = i
+                let curri = i
                 match.champIcon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/champion/" + ChampionNameByKey.getNameById(id: match.champion) + ".png", tableView: self.matchTable, match: match)
                 
                 self.getSummonerStats(match: match, completion: { playerStat in
@@ -236,6 +235,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
             }
             return
         })
+        matchTable.allowsSelection = false
         // Do any additional setup after loading the view.
     }
 

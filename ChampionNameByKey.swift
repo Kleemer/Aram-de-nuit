@@ -38,7 +38,7 @@ class ChampionNameByKey: NSObject {
         60: "Elise",
         28: "Evelynn",
         81: "Ezreal",
-        9: "FiddleSticks",
+        9: "Fiddlesticks",
         114: "Fiora",
         105: "Fizz",
         3: "Galio",

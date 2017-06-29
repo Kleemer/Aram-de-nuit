@@ -190,7 +190,6 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         {
             cell.characterImage.image = currMatch.champIcon.image
             cell.characterLabel.text = ChampionNameByKey.getNameById(id: currMatch.champion)
-            cell.dateLabel.text = String(currMatch.timestamp)
         }
         
         return cell

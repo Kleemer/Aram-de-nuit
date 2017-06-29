@@ -295,11 +295,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aram2nuit/UserDetailsViewController.swift"
-            timestampString = "520458318.189505"
+            timestampString = "520460768.296866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -327,11 +327,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aram2nuit/UserDetailsViewController.swift"
-            timestampString = "520458318.189505"
+            timestampString = "520460768.296866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>

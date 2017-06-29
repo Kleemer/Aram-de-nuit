@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CC7DB2F1F056D4300AE0C84 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7DB2E1F056D4300AE0C84 /* SearchViewCell.swift */; };
 		725135601EFC465D00667B56 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7251355F1EFC465D00667B56 /* UserPageViewController.swift */; };
 		725135661EFD3F5700667B56 /* LolAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135651EFD3F5700667B56 /* LolAPIRouter.swift */; };
 		725135AC1EFD48DD00667B56 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725135901EFD45E600667B56 /* Alamofire.framework */; };
@@ -123,6 +124,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3CC7DB2E1F056D4300AE0C84 /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		7251355F1EFC465D00667B56 /* UserPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		725135651EFD3F5700667B56 /* LolAPIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LolAPIRouter.swift; sourceTree = "<group>"; };
 		725135841EFD45E600667B56 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CC7DB231F056C5400AE0C84 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3CC7DB2E1F056D4300AE0C84 /* SearchViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		7251355E1EFC463500667B56 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +241,7 @@
 		C207FC941EF9AD7500342852 /* Aram2nuit */ = {
 			isa = PBXGroup;
 			children = (
+				3CC7DB231F056C5400AE0C84 /* Cells */,
 				725135641EFD3F2800667B56 /* Enum */,
 				7251355E1EFC463500667B56 /* Controllers */,
 				C207FC951EF9AD7500342852 /* AppDelegate.swift */,
@@ -394,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CC7DB2F1F056D4300AE0C84 /* SearchViewCell.swift in Sources */,
 				725135BF1EFE5ED700667B56 /* Search.swift in Sources */,
 				725135B21EFD4D4D00667B56 /* FindUserViewController.swift in Sources */,
 				725135B41EFD4D8A00667B56 /* User.swift in Sources */,

@@ -10,16 +10,19 @@ import UIKit
 import Alamofire
 import Toaster
 
-class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate{
+class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
 
     @IBOutlet weak var recentSearchTable: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var searchButton: UIButton!
     
     var summoner:User = User()
     var servers = ["EUW", "RU", "KR", "BR", "OC", "JP", "NA", "EUN", "TR", "LA1", "LA2"]
     var oldSearchData : [Search] = [Search]()
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchSummoner()
+    }
     
     // PICKER MANAGEMENT
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -39,16 +42,19 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = recentSearchTable.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
+        let cell = recentSearchTable.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchViewCell
         if (oldSearchData[indexPath.row].image?.image != nil)
         {
-            cell.imageView?.image = oldSearchData[indexPath.row].image?.image
+            cell.summonerImage?.image = oldSearchData[indexPath.row].image?.image
         }
         else
         {
-            cell.imageView?.downloadedFromInCell(link: oldSearchData[indexPath.row].urlPic, tableView: recentSearchTable, item: oldSearchData[indexPath.row])
+            cell.summonerImage?.downloadedFromInCell(link: oldSearchData[indexPath.row].urlPic, tableView: recentSearchTable, item: oldSearchData[indexPath.row])
         }
-        cell.textLabel?.text = oldSearchData[indexPath.row].name
+        
+        cell.nameLabel?.text = oldSearchData[indexPath.row].name
+        
+        // cell.servLabel?.text = oldSearchData[indexPath.row].servName
         
         return cell
     }
@@ -71,7 +77,6 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         Alamofire.request(LolAPIRouter.getSummoner(summonerName))
             .responseJSON{
                 response in
-                self.searchButton.isEnabled = true
                 guard response.result.isSuccess else {
                     print("Error while getting summoner : \(String(describing: response.result.error))")
                     ToastView.appearance().backgroundColor = #colorLiteral(red: 1, green: 0.3005838394, blue: 0.2565174997, alpha: 1)
@@ -122,18 +127,18 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     })*/
                     
         })
-        searchButton.isEnabled = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //UserDefaults.standard.setValue(nil, forKey: "recentSearch")
-        searchButton.isEnabled = true
         pickerView.dataSource = self
         pickerView.delegate = self
         
         recentSearchTable.dataSource = self
         recentSearchTable.delegate = self
+        
+        searchBar.delegate = self
         
         if let data = UserDefaults.standard.data(forKey: "recentSearch") {
             oldSearchData = (NSKeyedUnarchiver.unarchiveObject(with: data) as? [Search])!

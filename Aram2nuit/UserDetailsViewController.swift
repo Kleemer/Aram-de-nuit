@@ -193,6 +193,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         getMatchs(summonerId: (user?.accountId)!, completion: {
             matchlistS in
             var matchlist = matchlistS
+            
             while matchlist.count > 8
             {
                 matchlist.removeLast()

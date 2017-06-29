@@ -132,7 +132,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.setValue(nil, forKey: "recentSearch")
+        //UserDefaults.standard.setValue(nil, forKey: "recentSearch")
         pickerView.dataSource = self
         pickerView.delegate = self
         
@@ -157,7 +157,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     {
         for search in oldSearchData
         {
-            if search.name == search2.name && search.serverRow == search2.serverRow
+            if search.name == search2.name && search.server == search2.server
             {
                 return true
             }

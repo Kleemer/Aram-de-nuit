@@ -208,6 +208,7 @@
 				72D1075A1F018360000FD74F /* ChampionNameByKey.swift */,
 			);
 			name = ItemAPI;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		72FEAED91EFEDC610078407E /* Products */ = {
@@ -223,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				72FEAED81EFEDC610078407E /* Toaster.xcodeproj */,
-				725135B51EFD4DA000667B56 /* ItemAPI */,
 				725135841EFD45E600667B56 /* Alamofire.xcodeproj */,
 				C207FC941EF9AD7500342852 /* Aram2nuit */,
 				C207FC931EF9AD7500342852 /* Products */,
@@ -241,6 +241,7 @@
 		C207FC941EF9AD7500342852 /* Aram2nuit */ = {
 			isa = PBXGroup;
 			children = (
+				725135B51EFD4DA000667B56 /* ItemAPI */,
 				3CC7DB231F056C5400AE0C84 /* Cells */,
 				725135641EFD3F2800667B56 /* Enum */,
 				7251355E1EFC463500667B56 /* Controllers */,

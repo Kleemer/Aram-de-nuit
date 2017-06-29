@@ -15,4 +15,12 @@ class PlayerStatsGlob: NSObject {
     var champIcon = UIImage()
     var summonerName = ""
     var isOK = false
+    var win:Bool = false
+    var item0: Int = -1
+    var item1: Int = -1
+    var item2: Int = -1
+    var item3: Int = -1
+    var item4: Int = -1
+    var item5: Int = -1
+    var item6: Int = -1
 }

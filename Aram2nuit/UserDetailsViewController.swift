@@ -94,7 +94,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
                     return
                 }
                 var result:PlayerStatsGlob = PlayerStatsGlob()
-                guard let participantsStats = responseJSON["participants"] as! [[String:Any]]? else {completion(result); return}
+                guard let participantsStats = responseJSON["participants"] as! [[String:Any]]? else {print(responseJSON);completion(result); return}
                 for stat in participantsStats{
                     if (stat["championId"] as? Int == match.champion)
                     {
@@ -102,6 +102,14 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
                         result.kills = killsStats["kills"] as! Int
                         result.assists = killsStats["assists"] as! Int
                         result.deaths = killsStats["deaths"] as! Int
+                        result.win = killsStats["win"] as! Bool
+                        result.item0 = killsStats["item0"] as! Int
+                        result.item1 = killsStats["item1"] as! Int
+                        result.item2 = killsStats["item2"] as! Int
+                        result.item3 = killsStats["item3"] as! Int
+                        result.item4 = killsStats["item4"] as! Int
+                        result.item5 = killsStats["item5"] as! Int
+                        result.item6 = killsStats["item6"] as! Int
                         result.isOK = true
                     }
                 }
@@ -155,22 +163,17 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         let currMatch = matches[indexPath.row]
         if (currMatch.statsSummoner == nil)
         {
-            getSummonerStats(match: currMatch, completion: { playerStat in
-                if (playerStat.isOK){
-                    self.matches[indexPath.row].statsSummoner = playerStat
-                }
-                self.matchTable.reloadData()
-                
-            })
+
         }
         else
         {
             cell.textLabel?.text = "\((currMatch.statsSummoner?.kills)!)/\((currMatch.statsSummoner?.deaths)!)/\((currMatch.statsSummoner?.assists)!)"
+            cell.backgroundColor = (currMatch.statsSummoner?.win)! ? #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1): #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         }
         if (currMatch.champIcon.image == nil)
         {
-            currMatch.champIcon.image = UIImage()
-            currMatch.champIcon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/champion/" + ChampionNameByKey.getNameById(id: currMatch.champion) + ".png", tableView: matchTable, match:currMatch)
+            /*currMatch.champIcon.image = UIImage()
+            currMatch.champIcon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/champion/" + ChampionNameByKey.getNameById(id: currMatch.champion) + ".png", tableView: matchTable, match:currMatch)*/
         }
         else
         {
@@ -188,13 +191,29 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         matchTable.delegate = self
         
         getMatchs(summonerId: (user?.accountId)!, completion: {
-            matchlist in
-            for match in matchlist
+            matchlistS in
+            var matchlist = matchlistS
+            while matchlist.count > 8
             {
-                match.champIcon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/champion/" + ChampionNameByKey.getNameById(id: match.champion) + ".png", tableView: self.matchTable, match: match)
+                matchlist.removeLast()
             }
-
+            var i = 0
             self.matches = matchlist
+            for match in self.matches
+            {
+                var curri = i
+                match.champIcon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/champion/" + ChampionNameByKey.getNameById(id: match.champion) + ".png", tableView: self.matchTable, match: match)
+                
+                self.getSummonerStats(match: match, completion: { playerStat in
+                    if (playerStat.isOK){
+                        self.matches[curri].statsSummoner = playerStat
+                        /*self.matches[curri].champIcon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item6).png", tableView: self.matchTable, match: self.matches[curri])*/
+                    }
+                    self.matchTable.reloadRows(at: [IndexPath(item: curri, section: 0)], with: UITableViewRowAnimation.none)
+                    
+                })
+                i += 1
+            }
             return
         })
         // Do any additional setup after loading the view.

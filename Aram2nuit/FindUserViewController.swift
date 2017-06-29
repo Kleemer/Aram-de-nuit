@@ -57,6 +57,11 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return (oldSearchData.count)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchBar.text = oldSearchData[indexPath.row].name
+        searchSummoner()
+    }
+    
     // API CALLS
     func getUser(summonerName: String, completion : @escaping (_ name: String, _ id : Int, _ accountId: Int,
         _ profileIconId : Int, _ summonerLevel : Int) -> Void) {
@@ -142,7 +147,17 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Dispose of any resources that can be recreated.
     }
     
-
+    func wasAlreadySearched(search2:Search) -> Bool
+    {
+        for search in oldSearchData
+        {
+            if search.name == search2.name
+            {
+                return true
+            }
+        }
+        return false
+    }
     
     // MARK: - Navigation
 
@@ -158,8 +173,9 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
 
                 let search:Search = Search(name:summoner.name, urlPic: "https://avatar.leagueoflegends.com/" + userViewController.server! + "/" + summoner.name + ".png", image: imageView)
                 imageView.downloadedFromInCell(link: "https://avatar.leagueoflegends.com/" + userViewController.server! + "/" + summoner.name + ".png", tableView: recentSearchTable, item: search)
-                
-                oldSearchData.insert(search, at: 0)
+                if (wasAlreadySearched(search2: search) == false){
+                    oldSearchData.insert(search, at: 0)
+                }
                 recentSearchTable.reloadData()
                 let encodedData = NSKeyedArchiver.archivedData(withRootObject: oldSearchData)
                 UserDefaults.standard.setValue(encodedData, forKey: "recentSearch")

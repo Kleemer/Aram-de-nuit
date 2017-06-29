@@ -14,7 +14,7 @@ public enum LolAPIRouter : URLRequestConvertible
 
     static var server = "euw1"
     static var baseURLPath = "https://"+server+".api.riotgames.com/lol"
-    static let XRiotToken = "RGAPI-ca216182-43e6-431c-947a-2b640584b824"
+    static let XRiotToken = "RGAPI-647ae2a2-177c-4fd0-aab2-d05ad796ef78"
     
     case getSummoner(String)
     case getHistory(Int)

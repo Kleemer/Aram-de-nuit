@@ -54,7 +54,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         cell.nameLabel?.text = oldSearchData[indexPath.row].name
         
-        // cell.servLabel?.text = oldSearchData[indexPath.row].servName
+        cell.servLabel?.text = oldSearchData[indexPath.row].server
         
         return cell
     }
@@ -65,6 +65,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         searchBar.text = oldSearchData[indexPath.row].name
+        pickerView.selectRow(oldSearchData[indexPath.row].serverRow, inComponent: 0, animated: false)
         searchSummoner()
     }
     
@@ -131,7 +132,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //UserDefaults.standard.setValue(nil, forKey: "recentSearch")
+        UserDefaults.standard.setValue(nil, forKey: "recentSearch")
         pickerView.dataSource = self
         pickerView.delegate = self
         
@@ -156,7 +157,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
     {
         for search in oldSearchData
         {
-            if search.name == search2.name
+            if search.name == search2.name && search.serverRow == search2.serverRow
             {
                 return true
             }
@@ -176,7 +177,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 userViewController.server = servers[pickerView.selectedRow(inComponent: 0)]
                 let imageView=UIImageView()
 
-                let search:Search = Search(name:summoner.name, urlPic: "https://avatar.leagueoflegends.com/" + userViewController.server! + "/" + summoner.name + ".png", image: imageView)
+                let search:Search = Search(name:summoner.name, urlPic: "https://avatar.leagueoflegends.com/" + userViewController.server! + "/" + summoner.name + ".png", image: imageView, server: servers[pickerView.selectedRow(inComponent: 0)], serverRow: pickerView.selectedRow(inComponent: 0))
                 imageView.downloadedFromInCell(link: "https://avatar.leagueoflegends.com/" + userViewController.server! + "/" + summoner.name + ".png", tableView: recentSearchTable, item: search)
                 if (wasAlreadySearched(search2: search) == false){
                     oldSearchData.insert(search, at: 0)

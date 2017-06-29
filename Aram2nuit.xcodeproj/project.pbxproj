@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3CC7DB2F1F056D4300AE0C84 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7DB2E1F056D4300AE0C84 /* SearchViewCell.swift */; };
 		3CC7DB311F05734C00AE0C84 /* GameViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC7DB301F05734C00AE0C84 /* GameViewCell.swift */; };
-		725135601EFC465D00667B56 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7251355F1EFC465D00667B56 /* UserPageViewController.swift */; };
 		725135661EFD3F5700667B56 /* LolAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725135651EFD3F5700667B56 /* LolAPIRouter.swift */; };
 		725135AC1EFD48DD00667B56 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725135901EFD45E600667B56 /* Alamofire.framework */; };
 		725135AD1EFD48DD00667B56 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 725135901EFD45E600667B56 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -127,7 +126,6 @@
 /* Begin PBXFileReference section */
 		3CC7DB2E1F056D4300AE0C84 /* SearchViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		3CC7DB301F05734C00AE0C84 /* GameViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewCell.swift; sourceTree = "<group>"; };
-		7251355F1EFC465D00667B56 /* UserPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		725135651EFD3F5700667B56 /* LolAPIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LolAPIRouter.swift; sourceTree = "<group>"; };
 		725135841EFD45E600667B56 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		725135B11EFD4D4D00667B56 /* FindUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindUserViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 		7251355E1EFC463500667B56 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7251355F1EFC465D00667B56 /* UserPageViewController.swift */,
 				725135B11EFD4D4D00667B56 /* FindUserViewController.swift */,
 				725135BC1EFDC88000667B56 /* UserDetailsViewController.swift */,
 			);
@@ -412,7 +409,6 @@
 				725135BF1EFE5ED700667B56 /* Search.swift in Sources */,
 				725135B21EFD4D4D00667B56 /* FindUserViewController.swift in Sources */,
 				725135B41EFD4D8A00667B56 /* User.swift in Sources */,
-				725135601EFC465D00667B56 /* UserPageViewController.swift in Sources */,
 				3CC7DB311F05734C00AE0C84 /* GameViewCell.swift in Sources */,
 				72D1075B1F018360000FD74F /* ChampionNameByKey.swift in Sources */,
 				72FEAEE61F017A9B0078407E /* PlayerStatsGlob.swift in Sources */,

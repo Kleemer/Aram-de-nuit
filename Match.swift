@@ -20,6 +20,13 @@ class Match: NSObject {
     var champIcon:UIImageView = UIImageView()
     var statsSummoner: PlayerStatsGlob? = nil
     var allStats : [PlayerStatsGlob]? = nil
+    var item0Icon: UIImageView = UIImageView()
+    var item1Icon: UIImageView = UIImageView()
+    var item2Icon: UIImageView = UIImageView()
+    var item3Icon: UIImageView = UIImageView()
+    var item4Icon: UIImageView = UIImageView()
+    var item5Icon: UIImageView = UIImageView()
+    var item6Icon: UIImageView = UIImageView()
     
     override init()
     {

@@ -45,7 +45,7 @@ extension UIImageView {
                 else { print (error); return }
             DispatchQueue.main.async() { () -> Void in
                 self.image = image
-                match.champIcon.image = image
+                //match.champIcon.image = image
                 tableView.reloadData()
             }
             }.resume()
@@ -134,7 +134,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
                     return
                 }
                 
-                let arr = responseJSON["matches"] as! [[String:Any]]
+                guard let arr = responseJSON["matches"] as! [[String:Any]]? else {return}
                 var result = [Match]()
                 for match in arr {
                     let matchO = Match()
@@ -159,7 +159,7 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         return matches.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = matchTable.dequeueReusableCell(withIdentifier: "matchCell", for: indexPath)
+                let cell = matchTable.dequeueReusableCell(withIdentifier: "matchCell", for: indexPath) as! GameViewCell
         let currMatch = matches[indexPath.row]
         if (currMatch.statsSummoner == nil)
         {
@@ -167,8 +167,19 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         }
         else
         {
-            cell.textLabel?.text = "\((currMatch.statsSummoner?.kills)!)/\((currMatch.statsSummoner?.deaths)!)/\((currMatch.statsSummoner?.assists)!)"
-            cell.backgroundColor = (currMatch.statsSummoner?.win)! ? #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1): #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            cell.scoreLabel?.text = "\((currMatch.statsSummoner?.kills)!)/\((currMatch.statsSummoner?.deaths)!)/\((currMatch.statsSummoner?.assists)!)"
+            cell.winLoseRectangle.backgroundColor = (currMatch.statsSummoner?.win)! ? #colorLiteral(red: 0.431372549, green: 0.8352941176, blue: 0.431372549, alpha: 1) : #colorLiteral(red: 0.6509803922, green: 0.2235294118, blue: 0.2078431373, alpha: 1)
+            
+            // inventory
+            
+            cell.item0.image = currMatch.item0Icon.image
+            cell.item1.image = currMatch.item1Icon.image
+            cell.item2.image = currMatch.item2Icon.image
+            cell.item3.image = currMatch.item3Icon.image
+            cell.item4.image = currMatch.item4Icon.image
+            cell.item5.image = currMatch.item5Icon.image
+            cell.item6.image = currMatch.item6Icon.image
+            
         }
         if (currMatch.champIcon.image == nil)
         {
@@ -177,7 +188,8 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
         }
         else
         {
-            cell.imageView?.image = currMatch.champIcon.image
+            cell.characterImage.image = currMatch.champIcon.image
+            cell.characterLabel.text = ChampionNameByKey.getNameById(id: currMatch.champion)
         }
         
         return cell
@@ -208,9 +220,16 @@ class UserDetailsViewController: UIViewController, UITableViewDataSource, UITabl
                 self.getSummonerStats(match: match, completion: { playerStat in
                     if (playerStat.isOK){
                         self.matches[curri].statsSummoner = playerStat
-                        /*self.matches[curri].champIcon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item6).png", tableView: self.matchTable, match: self.matches[curri])*/
+                        
+                        self.matches[curri].item0Icon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item0).png", tableView: self.matchTable, match: self.matches[curri])
+                        self.matches[curri].item1Icon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item1).png", tableView: self.matchTable, match: self.matches[curri])
+                        self.matches[curri].item2Icon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item2).png", tableView: self.matchTable, match: self.matches[curri])
+                        self.matches[curri].item3Icon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item3).png", tableView: self.matchTable, match: self.matches[curri])
+                        self.matches[curri].item4Icon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item4).png", tableView: self.matchTable, match: self.matches[curri])
+                        self.matches[curri].item5Icon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item5).png", tableView: self.matchTable, match: self.matches[curri])
+                        self.matches[curri].item6Icon.downloadedFromInCell(link: "https://ddragon.leagueoflegends.com/cdn/7.13.1/img/item/\(playerStat.item6).png", tableView: self.matchTable, match: self.matches[curri])
                     }
-                    self.matchTable.reloadRows(at: [IndexPath(item: curri, section: 0)], with: UITableViewRowAnimation.automatic)
+                    //self.matchTable.reloadRows(at: [IndexPath(item: curri, section: 0)], with: UITableViewRowAnimation.automatic)
                     
                 })
                 i += 1

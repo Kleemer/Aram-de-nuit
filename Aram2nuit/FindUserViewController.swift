@@ -173,7 +173,7 @@ class FindUserViewController: UIViewController, UIPickerViewDataSource, UIPicker
         // Pass the selected object to the new view controller.
         if segue.identifier == "UserDetails" {
             if let userViewController = segue.destination as? UserDetailsViewController {
-                userViewController.user = self.summoner as? User
+                userViewController.user = self.summoner
                 userViewController.server = servers[pickerView.selectedRow(inComponent: 0)]
                 let imageView=UIImageView()
 
